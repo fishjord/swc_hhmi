@@ -35,10 +35,10 @@ AC_DEFUN([AX_PYTHON_MODULE],[
     if test $? -eq 0;
     then
 	AC_MSG_RESULT(yes)
-		eval AS_TR_CPP(HAVE_PYMOD_$1)=yes
+		eval HAVE_PYMOD_$1=yes
 		else
 			AC_MSG_RESULT(no)
-				eval AS_TR_CPP(HAVE_PYMOD_$1)=no
+				eval HAVE_PYMOD_$1=no
 				     #
 					if test -n "$2"
 					   then
