@@ -1,7 +1,10 @@
 #!/usr/bin/env python
 import os, sys, argparse, json, sha, base64, re
 
+# Directory to save image files
 IMAGE_DIR = "img"
+
+# Prefix for Markdown image URLs
 IMAGE_URL_PREFIX = "img"
 
 def cleanup(s):
@@ -20,10 +23,11 @@ if __name__ == "__main__":
     # Import notebook JSON
     notebook = json.load(open(args.notebook, "r"))
 
-    # Only one worksheet
+    # Only one worksheet is supported
     cells = notebook["worksheets"][0]["cells"]
     in_code = False
 
+    # Output each cell
     for cell in cells:
         if cell["cell_type"] == "markdown":
             # Write markdown directly
@@ -32,13 +36,13 @@ if __name__ == "__main__":
             print >>out, ""
 
         elif cell["cell_type"] == "code":
-            # Write code
+            # Wrap code in Github fenced code block
             print >>out, "```python"
             for line in cell["input"]:
                 print >>out, line
             print >>out, "```"
 
-            # Write output
+            # Write cell output
             outputs = cell["outputs"]
             if len(outputs) > 0:
                 print >>out, ""
@@ -47,6 +51,7 @@ if __name__ == "__main__":
 
                 output_types = [o["output_type"] for o in outputs]
 
+                # Write as a fenced code block with no highlighting
                 if ("pyout" in output_types) or ("stream" in output_types):
                     print >>out, "```"
                     for output in cell["outputs"]:
@@ -56,6 +61,8 @@ if __name__ == "__main__":
                             print >>out, "```"
                             print >>out, ""
 
+                # Save base64-encoded PNG to the file system.
+                # The file name is just the SHA hash of the raw image data prefixed with "gen_".
                 if "display_data" in output_types:
                     for output in cell["outputs"]:
                         if output["output_type"] == "display_data":
