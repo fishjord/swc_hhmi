@@ -222,13 +222,11 @@ A for loop in python goes through each item in a collection one at a time and ex
 
 
 Syntax:
-
-```for var in collection:
+```python for var in collection:
 
     #...some code...
 
 ```
-
 
 
 Where in each iteration `var` is the current item in `collection`.  In our example the first time through the loop `data` contains the first item in the list.
