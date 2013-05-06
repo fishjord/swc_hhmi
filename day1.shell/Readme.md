@@ -1,7 +1,8 @@
 # The Shell
 
 **Original Material by Milad Fatenejad, Sasha Wood, and Radhika Khetani**
-**Modified by Adina Howe
+
+**Modified by Adina Howe**
 
 # What is the shell how do I access the shell?
 
