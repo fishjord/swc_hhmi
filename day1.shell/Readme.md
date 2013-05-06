@@ -1,6 +1,7 @@
 # The Shell
 
-**Material by Milad Fatenejad, Sasha Wood, and Radhika Khetani**
+**Original Material by Milad Fatenejad, Sasha Wood, and Radhika Khetani**
+**Modified by Adina Howe
 
 # What is the shell how do I access the shell?
 
@@ -10,15 +11,15 @@ with a keyboard instead of controlling graphical user interfaces
 (GUIs) with a mouse/keyboard combination.
 
 Use a browser to open the tutorial on github, located at:
-    https://github.com/USERNAME/boot-camps/tree/YYYY-MM-PLACE
+    @AC https://github.com/USERNAME/boot-camps/tree/YYYY-MM-PLACE
 
-Click on the directory named `shell`.
+Click on the directory named `day1.shell`.
 
 A *terminal* is a program you run that gives you access to the
 shell. There are many different terminal programs that vary across
 operating systems.
 	 
-There are many reasons to learn about the shell. In my opinion, the
+There are many reasons to learn about the shell. In our opinion, the
 most important reasons are that: 
 
 1.  It is very common to encounter the shell and
@@ -50,15 +51,13 @@ by manipulating some experimental data from a hearing test. To get
 the data for this test, you will need internet access. Just enter the
 command:
 
-    git clone -b YYYY-MM-PLACE https://github.com/USERNAME/boot-camps.git
+    @AC git clone -b YYYY-MM-PLACE https://github.com/USERNAME/boot-camps.git
 
 Followed by:
 
-    cd boot-camps
-    git checkout YYYY-MM-PLACE
+    cd day1.shell
 
-These 2 commands will grab all of the data needed for this workshop from the
-internet.
+This command downloads all the data that will be needed for this tutorial.  
 
 # Let's get started
 
@@ -88,18 +87,13 @@ can contain other files or directories.
 
 Whenever you start up a terminal, you will start in a special
 directory called the *home* directory. Every user has their own home
-directory where they have full access to do whatever they want. In
-this case, the `pwd` command tells us that we are in the `/home/swc`
-directory. This is the home directory for the `swc` user. That is our
-user name. You can always find out your user name by entering the
-command `whoami`. 
+directory where they have full access to do whatever they want. 
 
 **File Types**
 
 When you enter the `ls` command lists the contents of the current
 directory. There are several items in the home directory, notice that
-they are all colored blue. This tells us that all of these items are
-directories as opposed to files.
+some of them are files and some of them are directories.
 
 Lets create an empty file using the `touch` command. Enter the
 command:
@@ -107,12 +101,11 @@ command:
     touch testfile
 
 Then list the contents of the directory again. You should see that a
-new entry, called `testfile`, exists. It is colored white meaning that
-it is a file, as opposed to a directory. The `touch` command just
+new entry, called `testfile`, exists.  The `touch` command just
 creates an empty file. 
 
-Some terminals will not color the directory entries in this very
-convenient way. In those terminals, use `ls -F` instead of `ls`. The
+Some terminals will color the directory entries in this very
+convenient way. Another way you can display direcories is by using `ls -F` instead of `ls`. The
 `-F` argument modifies the results so that a slash is placed at the
 end of directories. If the file is *executable* meaning that it can be
 run like a program, then a star will be placed at the end of of the
@@ -136,21 +129,17 @@ you will see that `testfile` is gone.
 
 **Changing Directories**
 
-Now, let's move to a different directory. The command `cd` (change
+Now, let's move to a different directory.  Right now, we are in the "day1.shell" directory which is in the "swc_hhmi" directory.  You can see this with the command `pwd`.   The command `cd` (change
 directory) is used to move around. Let's move into the `boot-camps`
 directory. Enter the following command:
 
-    cd boot-camps
+    cd swc_hhmi
 
-Now use the `ls` command to see what is inside this directory. You
-will see that there is an entry which is green. This means that this
-is an executable. If you use `ls -F` you will see that this file ends
-with a star.
-
+Now use the `ls` command to see what is inside this directory. 
 This directory contains all of the material for this boot camp. Now
 move to the directory containing the data for the shell tutorial:
 
-    cd shell
+    cd day1.shell
 
 If you enter the `cd` command by itself, you will return to the home
 directory. Try this, and then navigate back to the `shell`
@@ -187,20 +176,8 @@ give `ls` the names of other directories to view. Navigate to the
 home directory if you are not already there. Then enter the
 command:
 
-    ls boot-camps
+@AC    ls /home/swc_hhmi
 
-This will list the contents of the `boot-camps` directory without
-you having to navigate there. Now enter:
-
-    ls boot-camps/shell
-
-This prints the contents of `shell`. The `cd` command works in a
-similar way. Try entering:
-
-    cd boot-camps/shell
-
-and you will jump directly to `shell` without having to go through
-the intermediate directory.
 
 ## Full vs. Relative Paths
 
@@ -209,9 +186,9 @@ name. Directories can be specified using either a *relative* path a
 full *path*. The directories on the computer are arranged into a
 hierarchy. The full path tells you where a directory is in that
 hierarchy. Navigate to the home directory. Now, enter the `pwd`
-command and you should see:
+command and you should see:@AC
 
-    /home/swc
+    /home/
 
 which is the full name of your home directory. This tells you that you
 are in a directory called `swc`, which sits inside a directory called
@@ -238,9 +215,6 @@ not. You can usually use either a full path or a relative path
 depending on what is most convenient. If we are in the home directory,
 it is more convenient to just enter the relative path since it
 involves less typing.
-
-Now, list the contents of the /bin directory. Do you see anything
-familiar in there?
 
 
 ## Saving time with shortcuts, wild cards, and tab completion
@@ -315,7 +289,7 @@ onto more advanced shell topics...
 
 **Wild cards**
 
-Navigate to the `~/boot-camps/shell/data/THOMAS` directory. This
+Navigate to the `~/swc_hhmi/day1.shell/data/THOMAS` directory. This
 directory contains our hearing test data for THOMAS. If we type `ls`,
 we will see that there are a bunch of files which are just four digit
 numbers. By default, `ls` lists all of the files in a given
@@ -325,12 +299,7 @@ directory. Now try this command:
 
     ls *1
 
-This lists every file that ends with a `1`. This command:
-
-    ls /usr/bin/*.sh
-
-Lists every file in `/usr/bin` that ends in the characters `.sh`. And
-this command:
+And this command
 
     ls *4*1
 
@@ -356,9 +325,8 @@ between these two things.
 Do each of the following using a single `ls` command without
 navigating to a different directory.
 
-1.  List all of the files in `/bin` that contain the letter `a`
-2.  List all of the files in `/bin` that contain the letter `a` or the letter `b`
-3.  List all of the files in `/bin` that contain the letter `a` AND the letter `b`
+1.  List all of the files in the data directory `gerdal` that contain the number `2`
+2.  List all of the files in that contain the number `2`, followed by the number (in any position) `9`
 
 * * * *
 
@@ -374,11 +342,11 @@ directory name. For example, enter:
 The shell will fill in the rest of the directory name for
 `boot-camps`. Now enter:
 
-    ls 3<tab><tab>
+    ls ~/swc_hhmi/day1.shell/e<tab><tab>
 
 When you hit the first tab, nothing happens. The reason is that there
 are multiple directories in the home directory which start with
-3. Thus, the shell does not know which one to fill in. When you hit
+e. Thus, the shell does not know which one to fill in. When you hit
 tab again, the shell will list the possible choices. 
 
 Tab completion can also fill in the names of programs. For example,
@@ -431,7 +399,7 @@ shell looks for programs to run. If your program is not in this list,
 then an error is printed. The shell ONLY checks in the places listed
 in the `PATH` environment variable. 
 
-Navigate to the `shell` directory and list the contents. You will
+Navigate to the `day1.shell` directory and list the contents. You will
 notice that there is a program (executable file) called `hello` in
 this directory. Now, try to run the program by entering:
 
@@ -479,7 +447,7 @@ is where the name comes from, `cat` is short for concatenate).
 * * * *
 **Short Exercises**
 
-1.  Print out the contents of the `~/boot-camps/shell/dictionary.txt`
+1.  Print out the contents of the `~/swc_hhmi/day1.shell/dictionary.txt`
     file. What does this file contain?
 
 2.  Without changing directories, (you should still be in `shell`),
@@ -524,7 +492,7 @@ in reverse while using `less`.
 ## Redirection
 
 Let's turn to the experimental data from the hearing tests that we
-began with. This data is located in the `~/boot-camps/shell/data`
+began with. This data is located in the `~/swc_hhmi/day1.shell/data`
 directory. Each subdirectory corresponds to a particular participant
 in the study. Navigate to the `Bert` subdirectory in `data`.  There
 are a bunch of text files which contain experimental data
@@ -551,7 +519,7 @@ exists.
 Use `>>`, to append the contents of all of the files which contain the
 number 4 in the directory:
 
-    /home/swc/boot-camps/shell/data/gerdal
+    ~/swc_hhmi/day1.shell/data/gerdal
 
 to the existing `all_data` file. Thus, when you are done `all_data`
 should contain all of the experiment data from Bert and any
@@ -641,7 +609,7 @@ that the fifth column is the size of the file in bytes.
 * * * *
 **Short Exercise**
 
-Figure out how to get `wc` to print the length of the longest line in
+@AC Figure out how to get `wc` to print the length of the longest line in
 `all_data`.
 
 * * * *
