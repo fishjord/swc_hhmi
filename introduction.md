@@ -17,23 +17,23 @@ We'll have breaks with snacks (at least it was promised!)
 
 Day 1:		
 
-[Shell Introduction]() (Adina)
+[Shell Introduction](https://github.com/fishjord/swc_hhmi/tree/master/day1.shell) (Adina)
 
-[Python Basics] (Mike)
+Python Basics (Mike)
 
-[Python Advanced] (Jordan)
+[Python Advanced](https://github.com/fishjord/swc_hhmi/tree/master/day1.pythonadv) (Jordan)
 
-[Version Control] (Jordan)	
+Version Control (Jordan)	
 
 Day 2:  	
 
-[Advanced data analysis / Pandas] (Mike)
+[Advanced data analysis / Pandas](https://github.com/fishjord/swc_hhmi/tree/master/pandas) (Mike)
 
-[Testing / Debugging] (Jordan)
+Testing / Debugging (Jordan)
 
-[Automation] (Jordan)
+Automation (Jordan)
 
-[Summary / Survey] (Adina)
+Summary / Survey (Adina)
 
 ## Getting course materials
 
@@ -63,6 +63,9 @@ To execute code:
     shift-ENTER #execute current code cell and move to next
     cntl-ENTER #execute current code and say in current cell
 
+Check install:
+
+      ~/swc_hhmi/check_setup/check_setup
 
 
 		
