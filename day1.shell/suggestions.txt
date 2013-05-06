@@ -1,0 +1,6 @@
+- verb, adj, noun of shell
+- pipe into files and explain redirection more slowly
+- remove chmod and just do just bash (no bash header)
+
+- dont clear so fast
+- emphasize that its real data
