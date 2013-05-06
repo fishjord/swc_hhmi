@@ -18,14 +18,21 @@ We'll have breaks with snacks (at least it was promised!)
 Day 1:		
 
 [Shell Introduction]() (Adina)
+
 [Python Basics] (Mike)
+
 [Python Advanced] (Jordan)
+
 [Version Control] (Jordan)	
 
 Day 2:  	
+
 [Advanced data analysis / Pandas] (Mike)
+
 [Testing / Debugging] (Jordan)
+
 [Automation] (Jordan)
+
 [Summary / Survey] (Adina)
 
 ## Getting course materials
