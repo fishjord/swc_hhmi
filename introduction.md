@@ -2,7 +2,7 @@
 
 ## Introductions!
 
-[Introductory Talk](http://putslidesharelinkhere)
+[Introductory Talk](www.slideshare.net/adinachuanghowe)
 
 ## Using this website
 

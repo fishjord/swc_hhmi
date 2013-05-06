@@ -11,7 +11,8 @@ with a keyboard instead of controlling graphical user interfaces
 (GUIs) with a mouse/keyboard combination.
 
 Use a browser to open the tutorial on github, located at:
-    @AC https://github.com/USERNAME/boot-camps/tree/YYYY-MM-PLACE
+
+    https://github.com/fishjord/swc_hhmi
 
 Click on the directory named `day1.shell`.
 
@@ -46,12 +47,11 @@ Desktop.
 
 # The Example: Manipulating Experimental Data Files
 
-We will spend most of our time learning about the basics of the shell
-by manipulating some experimental data from a hearing test. To get
+We will spend most of our time learning about the basics of the shell by manipulating some experimental data from a hearing test. To get
 the data for this test, you will need internet access. Just enter the
 command:
 
-    @AC git clone -b YYYY-MM-PLACE https://github.com/USERNAME/boot-camps.git
+    git clone https://github.com/fishjord/swc_hhmi
 
 Followed by:
 
@@ -126,14 +126,13 @@ command:
 The `rm` command can be used to remove files. If you enter `ls` again,
 you will see that `testfile` is gone.
 
-
 **Changing Directories**
 
 Now, let's move to a different directory.  Right now, we are in the "day1.shell" directory which is in the "swc_hhmi" directory.  You can see this with the command `pwd`.   The command `cd` (change
-directory) is used to move around. Let's move into the `boot-camps`
+directory) is used to move around. Let's move into the `~/swc_hhmi`
 directory. Enter the following command:
 
-    cd swc_hhmi
+    cd ~/swc_hhmi
 
 Now use the `ls` command to see what is inside this directory. 
 This directory contains all of the material for this boot camp. Now
@@ -176,45 +175,7 @@ give `ls` the names of other directories to view. Navigate to the
 home directory if you are not already there. Then enter the
 command:
 
-@AC    ls /home/swc_hhmi
-
-
-## Full vs. Relative Paths
-
-The `cd` command takes an argument which is the directory
-name. Directories can be specified using either a *relative* path a
-full *path*. The directories on the computer are arranged into a
-hierarchy. The full path tells you where a directory is in that
-hierarchy. Navigate to the home directory. Now, enter the `pwd`
-command and you should see:@AC
-
-    /home/
-
-which is the full name of your home directory. This tells you that you
-are in a directory called `swc`, which sits inside a directory called
-`home` which sits inside the very top directory in the hierarchy. The
-very top of the hierarchy is a directory called `/` which is usually
-referred to as the *root directory*. So, to summarize: `swc` is a
-directory in `home` which is a directory in `/`.
-
-Now enter the following command:
-
-    cd /home/swc/boot-camps/shell
-
-This jumps to `shell`. Now go back to the home directory. We saw
-earlier that the command:
-
-    cd boot-camps/shell
-
-had the same effect - it took us to the `shell` directory. But,
-instead of specifying the full path
-(`/home/swc/boot-camps/shell`), we specified a *relative path*. In
-other words, we specified the path relative to our current
-directory. A full path always starts with a `/`. A relative path does
-not. You can usually use either a full path or a relative path
-depending on what is most convenient. If we are in the home directory,
-it is more convenient to just enter the relative path since it
-involves less typing.
+    ls /home/swc_hhmi
 
 
 ## Saving time with shortcuts, wild cards, and tab completion
@@ -406,7 +367,7 @@ this directory. Now, try to run the program by entering:
     hello
 
 You should get an error saying that hello cannot be found. That is
-because the directory `/home/swc/boot-camps/shell` is not in the
+because the directory `/home/swc/swc_hhmo/day1.shell` is not in the
 `PATH`. You can run the `hello` program by entering:
 
     ./hello
@@ -416,11 +377,11 @@ directory. This tells the shell to run the `hello` program which is
 located right here. So, you can run any program by entering the path
 to that program. You can run `hello` equally well by specifying:
 
-    /home/swc/boot-camps/shell/hello
+    /home/swc/swc_hhmi/day1.shell/hello
 
 Or by entering:
 
-    ../shell/hello
+    ../day1.shell/hello
 
 When there are no `/` characters, the shell assumes you want to look
 in one of the default places for the program.
@@ -452,7 +413,7 @@ is where the name comes from, `cat` is short for concatenate).
 
 2.  Without changing directories, (you should still be in `shell`),
     use one short command to print the contents of all of the files in
-    the `/home/swc/boot-camps/shell/data/THOMAS` directory.
+    the `/home/swc/swc_hhmi/day1.shell/data/THOMAS` directory.
 
 * * * *
 
@@ -460,7 +421,7 @@ is where the name comes from, `cat` is short for concatenate).
 be annoying to use. The program, `less`, is useful for this
 case. Enter the following command:
 
-    less ~/boot-camps/shell/dictionary.txt
+    less ~/swc_hhmi/day1.shell/dictionary.txt
 
 `less` opens the file, and lets you navigate through it. The commands
 are identical to the `man` program. Use "space" to go forward and hit
@@ -606,13 +567,6 @@ size of the file in bytes should also be 10445. Let's confirm this:
 Remember that `ls -l` prints out detailed information about a file and
 that the fifth column is the size of the file in bytes.
 
-* * * *
-**Short Exercise**
-
-@AC Figure out how to get `wc` to print the length of the longest line in
-`all_data`.
-
-* * * *
 
 ## The awesome power of the Pipe
 
@@ -720,7 +674,7 @@ name to the file, then sort it and make a new file called Sorted.
 
 * * * *
 
-Let's navigate back to `~/boot-camps/shell/data`. Enter the following command:
+Let's navigate back to `~/swc_hhmi/day1.shell/data`. Enter the following command:
 
     wc Bert/* | sort -k 3 -n
 
@@ -871,7 +825,7 @@ require a `find` command):
 Hint: If you make a mistake and need to start over just do the
 following:
 
-1.  Navigate to the `shell` directory
+1.  Navigate to the `day1.shell` directory
 
 2.  Delete the `data` directory
 
