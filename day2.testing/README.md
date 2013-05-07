@@ -38,8 +38,8 @@ Core idea: Treat the 'system' as a black box.  Feed the system a small set of se
 * The system could be a biological system
 * Hardware system
 * Software system
-  ** As simple as a program
-  ** As complex as a large analysis pipeline
+  * As simple as a program
+  * As complex as a large analysis pipeline
 
 This is what we'll focus on!
 
@@ -63,8 +63,8 @@ EXERCISE:
 * Create a python script named `mean.py`
 * Write a function `compute_mean` that computes the mean of a list of numbers
 * Come up with several test cases for your function
-  ** How does it behave with lists of only integers?
-  ** How does it behave with an empty list?
+  * How does it behave with lists of only integers?
+  * How does it behave with an empty list?
 
 Review of functions
 
