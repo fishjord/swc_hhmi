@@ -20,12 +20,3 @@
   * Using `cut`, `sort`, and `uniq` commands, create a file containing the unique athletes in the `olympic_medals_raw.txt` file
   * Using either a bash script with `for`, `grep` and `cat` (or a python script) to output a file for each athlete
 * Use your script that computes the maximum number of medals won per year and average maximum to work with the athletes directory
-
-
-1. Write a bash script that extracts the Gold Medals column (third) from the test_data.txt file
-  * See the `cut` command
-2. Use the user_input_example.py to modify your mean.py script to read input from standard input
-3.  
-* examine the relationship between most medals awarded and year
-* examine the relationship between number of countries awarded medals and year
-* examine the relationship between mean medals awarded and year
