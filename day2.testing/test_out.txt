@@ -1,0 +1,18 @@
+Current test file is test_blank_line.txt
+average is 6.5
+Current test file is test_empty.txt
+average is
+Traceback (most recent call last):
+  File "./mean.py", line 16, in <module>
+    print "average is", sum(x) /float(len(x))
+ZeroDivisionError: float division by zero
+Current test file is test_float.txt
+average is 5.9
+Current test file is test_letters.txt
+average is 5.5
+Current test file is test_out.txt
+average is
+Traceback (most recent call last):
+  File "./mean.py", line 16, in <module>
+    print "average is", sum(x) /float(len(x))
+ZeroDivisionError: float division by zero

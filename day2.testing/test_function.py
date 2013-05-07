@@ -1,8 +1,5 @@
 def divide(numerator, denom):
 
-    v = int(numerator) / int(denom)
+    v = float(numerator) / float(denom)
 
-    if v == 1:
-        return 25
-    else:
-        return v
+    return v
