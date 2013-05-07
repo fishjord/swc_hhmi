@@ -110,3 +110,145 @@ Second, and far more pragmatically, if you find that you broke something subtle,
 Exercise Add “print ‘hello, world’” to the bottom of your calc.py script, make sure it runs, and then commit the changes to your repository. For extra credit, then use ‘git reset HEAD^’ to uncommit, and recommit with a different commit message.
 
 ## Working on multiple versions of your code
+
+OK, suppose now that you want to have two versions of your code. One is the “safe” version of your code, and the other is the “daring edgy” version of your code. For example, suppose you’re adding some nifty new features but you don’t want to “break” your existing code, which you’re using to run analyses. What do you do?
+
+The simplest (but not yet the easiest) thing to do is make a copy of your project. From within the ‘theproj’ directory, type:
+
+    cd ..
+    git clone theproj theproj_new
+
+This makes a complete copy of the git repository and puts it into ‘theproj_new’. Let’s go there and do some wild and crazy edits.
+
+    cd theproj_new
+
+and edit calc.py to look like this:
+
+    import sys
+    import math
+
+    x = []
+    for line in open(sys.argv[1]):
+    	num = int(line)
+   	x.append(num)
+
+    avg = sum(x) / float(len(x))
+
+    diffs = []
+    for num in x:
+    	diff = num - avg
+   	diffs.append(diff**2)
+
+    stddev = math.sqrt(sum(diffs) / float(len(x)))
+
+    print 'average is', sum(x) / float(len(x))
+    print 'sumsqdiffs is', sum(diffs)
+    print 'stddev is', stddev
+
+What does the diff look like?
+
+OK, verify that it runs and then commit it:
+
+    git commit -am "added stddev"
+
+Now let’s go back to the ‘safe’ repository, ‘theproj’, and edit calc.py to print the average sum sq diffs. Commit that, too:
+
+    cd ../theproj
+    git commit -am "changed to print avg sum sq diffs"
+
+Now pretend that this has taken a month or two, and you’ve been working on both repositories. Now you decide that you want to compare, and maybe combine, the changes in the two repositories. What do you do?
+
+Well, because these two repositories share history – until you made the changes above, they were the same repository – you can actually do this pretty easily.
+
+Let’s start by comparing the two sets of changes. Make sure you’re in the ‘theproj’ repository, and type:
+
+     git fetch ../theproj_new master:edgy
+
+This will take all of the changes in the ‘theproj_new’ repository and bring them over to the ‘theproj’ repository, but as a separate bundle of changes, called a ‘branch’. Try typing ‘git branch’ and you should see two branches, one called ‘master’ and one called ‘edgy’.
+
+So, let’s try comparing them; how do you do that? Any guesses?
+
+    git diff edgy
+
+OR:
+
+    git diff master..edgy
+
+do the same thing – they compare your current branch, ‘master’, to the ‘edgy’ branch.
+
+You can actually switch branches pretty easily – do:
+    
+    git branch
+
+and you’ll see that the ‘*’ has moved over to ‘edgy’, to reflect that you are now on the edgy branch.
+
+Switch back to the ‘master’ branch using ‘git checkout master’. Verify that you’re on the master branch using either ‘git status’ or ‘git branch’.
+
+OK, let’s say you’re happy with both sets of changes. Awesome! Let’s merge them in. To do this, just type
+
+    git branch -d edgy
+
+because it’s been merged into your current branch. Generally it’s not a good idea to do this without a good reason – branches don’t take up much extra space. I generally wait until my project reaches a good resting point before cleaning up my repositories.
+
+## Using github
+
+Let’s start by going to https://github.com/ctb/theproj in a Web browser and clicking on ‘fork’ – make sure you’re logged into github.com first!
+
+This will create a new copy of my ‘theproj’ repository under your account on github.
+
+Now, on your laptop, go to the directory above your ‘theproj’ directory and make your own local copy of your github repository. First, grab the ‘http’ URL from your github repository; it should be under the ‘http’ tab just under the description of the project, and look something like this: ‘https://ctb@github.com/ctb/theproj.git‘
+
+At the command line, type:
+
+    cd ~/swc
+    git clone https://<user>@github.com/<user>/theproj.git newproj
+
+replacing the URL on the last line with YOUR github project URL.
+
+Assuming everything worked, you’ll have a directory ‘newproj’ containing ‘calc.py’ and ‘data.txt’. This is essentially the same thing that you’ve been working on above, but now it’s a clone of my own repository that I developed when creating this tutorial.
+
+It’s a full git repo – do ‘git log’, ‘git status’, etc. etc. after changing into the directory:
+
+    cd newproj
+
+OK, now, let’s make some changes!! Go in and change something in the script – put a comment at the top, or change a print statement to do something else, or whatever. Then make sure it works, and commit it:
+
+    git commit -am "a random change"
+
+Now you’ll want to push it to github. Ordinarily you should do everything in git with a ‘fetch’, in which you pull things into your repository; but in this case, you don’t actually have command line access to your repository! So you need to push. Type:
+
+    git push origin master
+
+and this will send the changes back to github under your fork of my repository. You should see them if you go back to the github.com Web page and look at ‘history’.
+
+And voila! These changes are now publicly available to anyone who wants to fetch them into their own repository. You just need to fetch from THEIR github URL, which will be using THEIR github username.
+
+Now, at this point, you have everything you need to work collaboratively.
+
+Four final quick things I’d like to point out: ‘git pull’, commit comments, pull requests, and ‘git stash’.
+
+1. ‘git pull’ is shorthand for ‘fetch-then-merge’, i.e. it’s the same as doing ‘git fetch <other_repo> <remote_branch>:<local_branch>’ followed by a ‘git merge <local_branch>’.
+
+You can comment on lines of code in commits on github.
+3. You can’t change other people’s repositories on github, but you CAN ask them to merge your changes into their repository. There’s actually a formal mechanism for requesting that someone merge a change you made into their software; check out ‘pull requests’ on github, http://help.github.com/send-pull-requests/.
+
+4. Suppose you’re working on a branch, and have made some changes but aren’t read to commit them just yet, but you need to switch over to another branch to make a quick bug fix. You could do a ‘git commit’ and then ‘git reset HEAD^’ to uncommit it, but that’s ugly and you’re likely to forget. Recent versions of git offer ‘stashing’ functionality: you can type ‘git stash’ to stash your current changes away in a special place, and then go off and do other stuff. When you’re ready to resume? ‘git stash apply’ will apply the last set of things you stashed. This is also handy if you find yourself working on the wrong branch and want to move your changes over to a different working copy – do ‘git stash’, then ‘git checkout’ a new branch, and ‘git stash apply’.
+
+—
+
+Concluding thoughts
+So, in conclusion, version control systems let you –
+
+track changes (wanted and unwanted) in your files.
+keep track of an entire history of changes.
+track multiple independent “branches” of work.
+collaborate sanely.
+There are other reasons that I didn’t mention above, too. One reason that I almost always use version control is that it’s a backup against my own stupidity - if I delete a file, or I tweak it in some way that I can’t immediately figure out, I can always restore it, as long as I’ve got it in version control! Plus, if I’m using github, then it’s somewhere else, so even if my computer gets stolen or dies horribly, I can recover it.
+
+So, you definitely want to use version control. Do you want to use git, in particular? That’s not so clear.
+
+There are a lot of version control systems, and it’s not so important whether you use git or rather mercurial (hg) or subversion (which are the two other really commonly used ones at the moment). Just use version control.
+
+That having been said, branching and merging with git is really, really easy, which is why I like it; and, in general, it’s a great tool that has relatively few drawbacks. The biggest positive is github, which is awesome; the biggest negative is the terse and rather unforgiving and complex command syntax.
+
+We haven’t talked much about the difference between distributed version control systems (like git and hg) and centralized version control system like subversion. If you’ve used version control in the past, you’ve probably used something centralized; the disadvantage there is that you have to set up a server, and permissions, and cannot commit when you don’t have a connection to the server (like on an airplane). The advantage, however, is that there is never any ambiguity about collaboration order: you get a unique, monotonically increasing version number. Greg likes this; I don’t care that much.
