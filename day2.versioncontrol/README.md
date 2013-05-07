@@ -2,6 +2,8 @@
 
 *Original material by C. Titus Brown*
 
+Git in [visuals](http://marklodato.github.io/visual-git-guide/index-en.html).  You can see that it gets very complicated.
+
 ## Create your own project:
     mkdir theproj
     cd theproj 
@@ -197,6 +199,8 @@ Note that you can now delete the ‘edgy’ branch:
 because it’s been merged into your current branch. Generally it’s not a good idea to do this without a good reason – branches don’t take up much extra space. I generally wait until my project reaches a good resting point before cleaning up my repositories.
 
 ## Using github
+
+First, sign up for an account and let's take a tour.  [Github website](https://github.com/)
 
 Let’s start by going to https://github.com/ctb/theproj in a Web browser and clicking on ‘fork’ – make sure you’re logged into github.com first!
 
