@@ -1,4 +1,3 @@
-Year	Country	Bronze Medals	Silver Medals	Gold Medals
 2000	Algeria	3	1	1
 2000	Argentina	3	17	0
 2000	Armenia	1	0	0

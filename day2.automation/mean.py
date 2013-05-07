@@ -2,17 +2,19 @@
 
 import sys
 
-def mean(values):
-    if len(values) == 0:
-        return 0
+x = []
+if len(sys.argv) == 2:
+	stream = open(sys.argv[1])
+else:
+	stream = sys.stdin
+for line in stream:
+	if line.strip() == "":
+		continue
 
-    s = 0
-    for val in values:
-        s += val
+	try:
+		num = float(line)
+		x.append(num)
+	except ValueError:
+		pass
 
-    return s
-
-input_values = []
-for line in sys.stdin:
-    input_values.append(float(line))
-print mean(input_values)
+print "average is", sum(x) /float(len(x))
