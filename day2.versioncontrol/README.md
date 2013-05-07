@@ -1,5 +1,7 @@
 # Introduction to Version Control with Github
 
+*Original material by C. Titus Brown*
+
 ## Create your own project:
     mkdir theproj
     cd theproj 
