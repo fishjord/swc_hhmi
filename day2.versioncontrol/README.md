@@ -107,7 +107,7 @@ First, it’s important scientifically because it allow you trace the set of cha
 
 Second, and far more pragmatically, if you find that you broke something subtle, it gives you a way to track down exactly what lines of code were modified. These sound like the same things, but I use these things more for tracking down bugs that I recently introduced than anything else...
 
-Exercise Add “print ‘hello, world’” to the bottom of your calc.py script, make sure it runs, and then commit the changes to your repository. For extra credit, then use ‘git reset HEAD^’ to uncommit, and recommit with a different commit message.
+# Exercise Add “print ‘hello, world’” to the bottom of your calc.py script, make sure it runs, and then commit the changes to your repository. For extra credit, then use ‘git reset HEAD^’ to uncommit, and recommit with a different commit message.
 
 ## Working on multiple versions of your code
 
@@ -179,6 +179,7 @@ do the same thing – they compare your current branch, ‘master’, to the ‘
 You can actually switch branches pretty easily – do:
     
     git branch
+    git checkout edgy
 
 and you’ll see that the ‘*’ has moved over to ‘edgy’, to reflect that you are now on the edgy branch.
 
@@ -186,6 +187,11 @@ Switch back to the ‘master’ branch using ‘git checkout master’. Verify t
 
 OK, let’s say you’re happy with both sets of changes. Awesome! Let’s merge them in. To do this, just type
 
+    git merge edgy
+
+Assuming you made only the changes we went through, this should just work, because git is smart enough to figure out that all the changes you made to both branches were syntactically orthogonal, or, to be simpler, didn’t interfere and could be merged automatically. Note that this doesn’t mean that the changes won’t interfere semantically – for example, if you changed the meaning of one of the variables, there’s no way for git to track that sort of thing. So you still need to worry about whether or not your code still works even after an automatic merge!
+
+Note that you can now delete the ‘edgy’ branch:
     git branch -d edgy
 
 because it’s been merged into your current branch. Generally it’s not a good idea to do this without a good reason – branches don’t take up much extra space. I generally wait until my project reaches a good resting point before cleaning up my repositories.
