@@ -231,24 +231,19 @@ And voila! These changes are now publicly available to anyone who wants to fetch
 
 Now, at this point, you have everything you need to work collaboratively.
 
-Four final quick things I’d like to point out: ‘git pull’, commit comments, pull requests, and ‘git stash’.
-
-1. ‘git pull’ is shorthand for ‘fetch-then-merge’, i.e. it’s the same as doing ‘git fetch <other_repo> <remote_branch>:<local_branch>’ followed by a ‘git merge <local_branch>’.
-
-You can comment on lines of code in commits on github.
-3. You can’t change other people’s repositories on github, but you CAN ask them to merge your changes into their repository. There’s actually a formal mechanism for requesting that someone merge a change you made into their software; check out ‘pull requests’ on github, http://help.github.com/send-pull-requests/.
-
-4. Suppose you’re working on a branch, and have made some changes but aren’t read to commit them just yet, but you need to switch over to another branch to make a quick bug fix. You could do a ‘git commit’ and then ‘git reset HEAD^’ to uncommit it, but that’s ugly and you’re likely to forget. Recent versions of git offer ‘stashing’ functionality: you can type ‘git stash’ to stash your current changes away in a special place, and then go off and do other stuff. When you’re ready to resume? ‘git stash apply’ will apply the last set of things you stashed. This is also handy if you find yourself working on the wrong branch and want to move your changes over to a different working copy – do ‘git stash’, then ‘git checkout’ a new branch, and ‘git stash apply’.
-
-—
+----
 
 Concluding thoughts
 So, in conclusion, version control systems let you –
 
 track changes (wanted and unwanted) in your files.
+
 keep track of an entire history of changes.
+
 track multiple independent “branches” of work.
+
 collaborate sanely.
+
 There are other reasons that I didn’t mention above, too. One reason that I almost always use version control is that it’s a backup against my own stupidity - if I delete a file, or I tweak it in some way that I can’t immediately figure out, I can always restore it, as long as I’ve got it in version control! Plus, if I’m using github, then it’s somewhere else, so even if my computer gets stolen or dies horribly, I can recover it.
 
 So, you definitely want to use version control. Do you want to use git, in particular? That’s not so clear.
