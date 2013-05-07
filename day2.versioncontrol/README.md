@@ -107,7 +107,7 @@ First, it’s important scientifically because it allow you trace the set of cha
 
 Second, and far more pragmatically, if you find that you broke something subtle, it gives you a way to track down exactly what lines of code were modified. These sound like the same things, but I use these things more for tracking down bugs that I recently introduced than anything else...
 
-# Exercise Add “print ‘hello, world’” to the bottom of your calc.py script, make sure it runs, and then commit the changes to your repository. For extra credit, then use ‘git reset HEAD^’ to uncommit, and recommit with a different commit message.
+### Exercise Add “print ‘hello, world’” to the bottom of your calc.py script, make sure it runs, and then commit the changes to your repository. For extra credit, then use ‘git reset HEAD^’ to uncommit, and recommit with a different commit message.
 
 ## Working on multiple versions of your code
 
