@@ -4,6 +4,10 @@
 
 **Modified by Adina Howe**
 
+###Exercise solutions have been posted as an ipython notebook.
+
+You can view solutions by navigating to the day1.shell directory and running ipython notebook.
+
 # What is the shell how do I access the shell?
 
 The *shell* is a program that presents a command line interface
