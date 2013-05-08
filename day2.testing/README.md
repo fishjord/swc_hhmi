@@ -20,6 +20,11 @@ Overview
 
 Exercise: hello world script
 
+```python
+
+print "Hello world"
+```
+
 make a script file named hello.py that prints "Hello world" and run it
 
 ## Why do we test?
