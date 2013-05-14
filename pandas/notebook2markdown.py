@@ -32,15 +32,16 @@ if __name__ == "__main__":
         if cell["cell_type"] == "markdown":
             # Write markdown directly
             for line in cell["source"]:
-                print >>out, line
+                print >>out, line.rstrip()
             print >>out, ""
 
         elif cell["cell_type"] == "code":
             # Wrap code in Github fenced code block
             print >>out, "```python"
             for line in cell["input"]:
-                print >>out, line
+                print >>out, line.rstrip()
             print >>out, "```"
+            print >>out, ""
 
             # Write cell output
             outputs = cell["outputs"]
@@ -57,7 +58,7 @@ if __name__ == "__main__":
                     for output in cell["outputs"]:
                         if output["output_type"] in ["pyout", "stream"]:
                             for line in output["text"]:
-                                print >>out, line
+                                print >>out, line.rstrip()
                             print >>out, "```"
                             print >>out, ""
 
